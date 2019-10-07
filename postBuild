@@ -1,0 +1,38 @@
+# Files will be stored in /tmp directory 
+
+# Install Python dependencies 
+pip install sos \
+sos-notebook \
+sos-python \
+sos-bash \
+sos-matlab==0.18.3 \
+sos-ruby \
+sos-sas \
+sos-julia \
+sos-javascript \
+sos-r \
+plotly \
+plotly_express \
+dash
+
+# Install SoS kernel 
+python -m sos_notebook.install
+
+
+jupyter nbextension enable --py --sys-prefix ipyleaflet
+
+git clone https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
+pip install -e jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+
+
+jupyter nbextension enable hide_input/main
+jupyter nbextension enable init_cell/main
+python -m pip install statsmodels
+pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+jupyter nbextension enable codefolding/main
+jupyter nbextension enable collapsible_headings/main
+jupyter labextension install @jupyterlab/plotly-extension
+jupyter labextension install jupyterlab_iframe
+jupyter serverextension enable --py jupyterlab_iframe
